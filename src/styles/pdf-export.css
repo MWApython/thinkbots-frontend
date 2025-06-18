@@ -1,0 +1,273 @@
+.pdf-export {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #222;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+/* Page break rules for PDF generation */
+.pdf-export h1, .pdf-export h2, .pdf-export h3 {
+  page-break-after: avoid;
+  break-after: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export h1, .pdf-export h2, .pdf-export h3, .pdf-export h4 {
+  color: #1a237e;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* Avoid breaking lists and paragraphs */
+.pdf-export ul, .pdf-export ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export li {
+  margin-bottom: 0.3em;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export p {
+  margin-bottom: 1em;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  orphans: 3;
+  widows: 3;
+}
+
+/* Avoid breaking code blocks and blockquotes */
+.pdf-export pre, .pdf-export blockquote {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin: 1em 0;
+}
+
+.pdf-export a {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+.pdf-export strong {
+  color: #0d47a1;
+}
+
+.pdf-export em {
+  color: #6d4c41;
+}
+
+/* Ensure sections don't break awkwardly */
+.pdf-export .section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Keep content together */
+.pdf-export .keep-together {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Specific rules for markdown content */
+.pdf-export .prose h1,
+.pdf-export .prose h2,
+.pdf-export .prose h3,
+.pdf-export .prose h4 {
+  page-break-after: avoid;
+  break-after: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export .prose ul,
+.pdf-export .prose ol {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export .prose li {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export .prose p {
+  orphans: 3;
+  widows: 3;
+}
+
+.pdf-export .prose blockquote {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid #1a237e;
+  background-color: #f8f9fa;
+}
+
+.pdf-export .prose code {
+  background-color: #f1f3f4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.pdf-export .prose pre {
+  background-color: #f8f9fa;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Force page breaks before major sections if needed */
+.pdf-export .page-break-before {
+  page-break-before: always;
+  break-before: page;
+}
+
+/* Avoid page breaks after these elements */
+.pdf-export .keep-with-next {
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* Keep content together */
+.pdf-export .keep-together {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Specific rules for markdown content */
+.pdf-export .prose h1,
+.pdf-export .prose h2,
+.pdf-export .prose h3,
+.pdf-export .prose h4 {
+  page-break-after: avoid;
+  break-after: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export .prose ul,
+.pdf-export .prose ol {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export .prose li {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.pdf-export .prose p {
+  orphans: 3;
+  widows: 3;
+}
+
+.pdf-export .prose blockquote {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid #1a237e;
+  background-color: #f8f9fa;
+}
+
+.pdf-export .prose code {
+  background-color: #f1f3f4;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.pdf-export .prose pre {
+  background-color: #f8f9fa;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Print-specific styles */
+@media print {
+  .pdf-export {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background: white;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .pdf-export h1 {
+    font-size: 18pt;
+    margin-top: 0;
+  }
+  
+  .pdf-export h2 {
+    font-size: 16pt;
+  }
+  
+  .pdf-export h3 {
+    font-size: 14pt;
+  }
+  
+  .pdf-export h4 {
+    font-size: 12pt;
+  }
+  
+  .pdf-export a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .pdf-export a:after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+  
+  /* Enhanced print styles for better page breaks */
+  .pdf-export .prose blockquote {
+    background-color: #f5f5f5 !important;
+    border-left: 3px solid #333 !important;
+    padding: 8pt !important;
+    margin: 8pt 0 !important;
+  }
+  
+  .pdf-export .prose code {
+    background-color: #f0f0f0 !important;
+    padding: 2pt 4pt !important;
+    font-size: 10pt !important;
+  }
+  
+  .pdf-export .prose pre {
+    background-color: #f8f8f8 !important;
+    padding: 8pt !important;
+    border: 1px solid #ddd !important;
+    font-size: 9pt !important;
+  }
+  
+  .pdf-export .prose ul,
+  .pdf-export .prose ol {
+    margin-left: 12pt !important;
+  }
+  
+  .pdf-export .prose li {
+    margin-bottom: 3pt !important;
+  }
+} 
