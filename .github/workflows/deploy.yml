@@ -20,17 +20,13 @@ jobs:
           service_account_email: thinkbots-frontend@thinkbots-production.iam.gserviceaccount.com
           service_account_key: ${{ secrets.GCP_SA_KEY }}
 
-      - name: Configure Docker to use Artifact Registry
+      - name: Configure Docker for Artifact Registry
         run: |
           gcloud auth configure-docker me-west1-docker.pkg.dev
 
       - name: Build Docker image
         run: |
           docker build -t me-west1-docker.pkg.dev/thinkbots-production/thinkbots-frontend-repo/thinkbots-frontend .
-
-      - name: Authenticate Docker with Artifact Registry
-        run: |
-          gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://me-west1-docker.pkg.dev
 
       - name: Push Docker image to Artifact Registry
         run: |
